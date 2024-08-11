@@ -1,9 +1,41 @@
 {% extends 'layouts/base.html' %}
 
-{% block title %}
-	About
+{% block head %}
+    {{ super() }}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FireSafe Now - About Us</title>
+
 {% endblock %}
 
 {% block main %}
-	Hi
+    <div class="container">
+        <div class="about-person">
+            <img src="{{ url_for('static', filename="assets/abhi.jpeg") }}" alt="Yash">
+            <div class="about-person-description">
+                <b>Abhi Raval</b>
+                <p>LDCE (Electronics and communication)  2nd year</p>
+            </div>
+        </div>
+        <div class="about-person">
+            <img src="{{ url_for('static', filename="assets/nikunj.jpeg") }}" alt="Person 2">
+            <div class="about-person-description">
+                <h2><b>Nikunj Bhatt</h2></b>
+                <p>VGEC (Electronics and communication) 2nd year</p>
+            </div>
+        </div>
+        <!-- Add more person sections similarly -->
+        <div class="about-person">
+            <img src="bhavya.jpeg" alt="Person 3">
+            <div class="about-person-description">
+                <b><h2>Ansh Vachhani</b></h2>
+                <p>Nirma (Electrical) 2nd year</p></div>
+        </div>
+        <div class="about-person">
+            <img src="hitarth.jpeg" alt="Person 5">
+            <div class="about-person-description">
+                <h2><b>Jash M. Mevada</b></h2>
+                <p>VGEC (Electronics and communication) 2nd year</div>
+        </div>
+    </div>
 {% endblock %}

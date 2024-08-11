@@ -1,9 +1,50 @@
+{#{% extends 'layouts/base.html' %}#}
+{##}
+{#{% block title %}#}
+{#	Forest Fire Detection#}
+{#{% endblock %}#}
+{##}
+{#{% block main %}#}
+{#    <div style="display: flex; flex-direction: column">#}
+{#        <h1>Forest Fire Detection</h1>#}
+{##}
+{#        <form enctype="multipart/form-data">#}
+{#            <div>#}
+{#                <label for="_file">Image File</label>#}
+{#                <input id="_file" type="file">#}
+{#            </div>#}
+{#        </form>#}
+{#    </div>#}
+{#{% endblock %}#}
+
 {% extends 'layouts/base.html' %}
 
-{% block title %}
-	Forest Fire Detection
-{% endblock %}
-
 {% block main %}
-	Login Page
+	<!-- Page Heading -->
+	<h1 style="text-align: center; margin-top: 20px; font-family: Arial, sans-serif; color: #2c3e50;">
+		FLOOD Detection Model
+	</h1>
+	<style>
+		p {
+		  background-image: url('{{ url_for('static', filename="assets/img_.jpeg") }}');
+		}
+		</style>
+	<p style="background-image: url('{{ url_for('static', filename="assets/img_.jpeg") }}');">
+	<!-- Form Section -->
+	<div style="max-width: 600px; margin: 40px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
+		<form method="post" enctype="multipart/form-data">
+			<div style="margin-bottom: 15px;">
+				<label for="name" style="display: block; margin-bottom: 8px; font-weight: bold; font-family: Arial, sans-serif;">Upload Your File</label>
+				<input type="file" name="file" id="name" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;" placeholder="Upload your file here">
+			</div>
+			<button type="submit" style="width: 100%; padding: 10px; border: none; border-radius: 4px; background-color: #3498db; color: white; font-weight: bold; cursor: pointer; font-family: Arial, sans-serif;">
+				Submit
+			</button>
+		</form>
+
+		<!-- Response Section -->
+		<div style="margin-top: 20px;">
+			{{ res }}
+		</div>
+	</div>
 {% endblock %}

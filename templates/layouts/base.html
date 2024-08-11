@@ -1,13 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+{% block head %}
     <meta charset="UTF-8">
     <title> {% block title %} Title{% endblock %} </title>
 
+    <style>
+        /* Styles for the rest of the page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url({{ url_for('static', filename="assets/path_to_your_background_image.jpg") }}); /* Replace with the actual path to your background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #f7f7f7; /* Fallback background color */
+        }
+
+        /* Navigation styles */
+        nav {
+            background-color: rgba(255, 111, 97, 0.8);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .about-person {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .about-person img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .about-person-description {
+            flex: 1;
+        }
+
+        .about-person-description p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+    </style>
+{% endblock %}
 </head>
 <body>
 
 <div class="main">
+    <nav>
+        <a href="/">Home</a>
+        <a href="/auth/login">Login</a>
+        <a href="/forest_fire/predict">Fire Detection</a>
+        <a href="/about">About Us</a>
+    </nav>
+
         {% block main %}
         	
         {% endblock %}

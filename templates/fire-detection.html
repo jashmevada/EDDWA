@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire-Detection Model</title>
+    <style>
+        span{
+         color: whitesmoke;
+        }
+        header{
+            align-items: center;
+        }
+    </style>
+</head>
+            <body bgcolor="#ff6f61">
+    <header>
+        <video src="V-1.mp4" autoplay loop controls height="20%" width="100%" >
+
+        </video>
+    </header>
+    <hr>
+    <main>
+       <center><h1>Fire Detection in Videos using Python and OpenCV </h1></center>
+<hr>
+<center><h2>Introduction</h2></center>
+<hr>
+<p>Fire detection is a crucial application of computer vision, especially in scenarios where early detection can prevent disasters. In this article, we'll explore a Python script that uses OpenCV, a popular computer vision library, to detect potential fire occurrences in videos. We'll break down the code step by step to understand how it works.</p><br>
+
+<b>Understanding the Code</b>
+<br>
+<ul>
+<li>Importing Libraries</li>
+<br><span>
+The code starts by importing the necessary libraries:
+import cv2
+import numpy as np<br>
+</span>
+<br>
+<li>Defining HSV Range for Fire Color</li>
+<br><span>
+The script defines a lower and upper range in the HSV (Hue, Saturation, Value) color space to detect fire-like colors:
+lower_fire = np.array([0, 120, 70])  
+upper_fire = np.array([10, 255, 255])<br>
+</span>
+<br>
+<li>Opening the Video File
+</li><br><span>
+The script opens the video file using OpenCV's"VideoCapture"function:
+video = cv2.VideoCapture('path_to_your_video.mp4')
+<br></span><br><li>
+Processing Frames
+</li><br><span>
+Inside the while loop, the script reads frames from the video file, converts them to the HSV color space, and applies a mask to detect fire-like colors:
+hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+fire_mask = cv2.inRange(hsv_frame, lower_fire, upper_fire)
+contours, _ = cv2.findContours(fire_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+The code then calculates and prints the area of detected contours, outlining potential fire areas in the video frame.<br></span><br><li>
+Displaying Detected Fire Areas</li><br><span>
+   The script draws contours around the detected fire areas and displays the frame:
+cv2.drawContours(frame, [contour], -1, (0, 255, 0), 2)
+cv2.imshow('Detected Contours', frame)
+<br></span><br><li>
+Exiting the Loop </li>
+<br><span>
+The loop continues until the user presses the 'q' key, and the script releases the video capture and closes windows after exiting the loop
+video.release()
+cv2.destroyAllWindows()
+<br></span><br></ul><hr><b><u><h3><center>Conclusion</center></h3></u></b><hr><br>
+
+This Python script provides a fundamental approach to fire detection in videos using color-based segmentation in the HSV color space. While this method is basic and might have limitations, it serves as a starting point for more advanced fire detection algorithms, including machine learning techniques. Understanding the basics of this code is essential for spaning deeper into the world of computer vision and fire detection applications.
+<br><hr>
+Feel free to customize and elaborate on this explanation based on the level of detail you want to provide in your article!
+<hr>
+    </main>
+    <footer>
+        <img src="f4.jpeg" width="100%">
+    </footer>
+</body>
+</html>

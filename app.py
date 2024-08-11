@@ -6,7 +6,7 @@ from controllers import auth
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'secert!'
+app.config['SECRET_KEY'] = 'secret!'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -21,14 +21,8 @@ def hello_world():  # put application's code here
     return render_template("index.html")
 
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        email = request.form['email']
-
-    return render_template("login.html")
+@app.route('/about', methods=['GET', 'POST'])
+def about(): return render_template("about.html")
 
 
 app.register_blueprint(auth.bp)
